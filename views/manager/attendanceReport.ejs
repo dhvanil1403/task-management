@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Report</title>
+</head>
+<body>
+    <h1>Attendance Report</h1>
+    <table>
+        <tr>
+            <th>Employee ID</th>
+            <th>Check In</th>
+            <th>Check Out</th>
+            <th>Date</th>
+        </tr>
+        <% attendance.forEach(record => { %>
+        <tr>
+            <td><%= record.employee_id %></td>
+            <td><%= record.check_in %></td>
+            <td><%= record.check_out %></td>
+            <td><%= record.date %></td>
+        </tr>
+        <% }) %>
+    </table>
+</body>
+</html>
