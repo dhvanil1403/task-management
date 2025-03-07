@@ -1,4 +1,4 @@
-const Employee = require('../models/Employee');
+const Employee = require('../models/employee');
 const Leave = require('../models/leave');
 const Task = require('../models/task');
 const bcrypt = require('bcrypt');
