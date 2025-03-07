@@ -19,14 +19,9 @@ const seedDatabase = async () => {
             password: await bcrypt.hash('password123', 10), // Hash the password
             role: 'manager',
         },
+    
         {
-            name: 'drashti',
-            email: 'drashtichauhan414@gmail.com',
-            password: await bcrypt.hash('password123', 10), // Hash the password
-            role: 'manager',
-        },
-        {
-            name: 'sujaltest1234@gmail.com',
+            name: 'sujaltest12',
             email: 'sujaltest1234@gmail.com',
             password: await bcrypt.hash('password123', 10), // Hash the password
             role: 'employee',
