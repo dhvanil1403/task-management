@@ -1,6 +1,7 @@
 const Employee = require('../models/employee');
 const Leave = require('../models/leave');
 const Task = require('../models/task');
+const bcrypt = require('bcrypt'); // or 'bcryptjs' if using bcryptjs
 
 exports.getDashboard = async (req, res) => {
     const employees = await Employee.findAll();
@@ -46,15 +47,35 @@ exports.assignTask = async (req, res) => {
 };
 
 exports.approveLeave = async (req, res) => {
-    const { id } = req.params; // Leave ID from the request parameters
-    await Leave.update({ status: 'approved' }, { where: { id } });
-    res.redirect('/manager/dashboard');
+    try {
+        const { id } = req.params; // Leave ID from the request parameters
+        const leave = await Leave.findByPk(id);
+        if (!leave) {
+            return res.status(404).json({ error: "Leave request not found." });
+        }
+        await Leave.update({ status: 'approved' }, { where: { id } });
+        res.redirect('/manager/dashboard');
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Error approving leave." });
+    }
 };
 
 exports.rejectLeave = async (req, res) => {
-    const { id } = req.params; // Leave ID from the request parameters
-    await Leave.update({ status: 'rejected' }, { where: { id } });
-    res.redirect('/manager/dashboard');
+    try {
+        const { id } = req.params;
+        const leave = await Leave.findByPk(id);
+        if (!leave) {
+            return res.status(404).json({ error: "Leave request not found." });
+        }
+        await Leave.update({ status: 'rejected' }, { where: { id } });
+        res.redirect('/manager/dashboard');
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Error rejecting leave." });
+    }
+};
+redirect('/manager/dashboard');
 };
 
 exports.getAttendanceReport = async (req, res) => {
