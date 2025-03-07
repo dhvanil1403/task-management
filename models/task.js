@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
-const Employee = require('./Employee'); // Ensure this is imported correctly
+const Employee = require('./employee'); // Ensure this is imported correctly
 
 class Task extends Model {}
 
