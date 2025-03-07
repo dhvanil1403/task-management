@@ -1,5 +1,5 @@
 const sequelize = require('./config/database');
-const Employee = require('./models/Employee');
+const Employee = require('./models/employee');
 const bcrypt = require('bcrypt');
 
 const seedDatabase = async () => {
@@ -8,26 +8,26 @@ const seedDatabase = async () => {
     // Sample data for employees
     const employees = [
         {
-            name: 'John Doe',
-            email: 'john.doe@example.com',
+            name: 'drashti manager',
+            email: 'drashtichauhan414@gmail.com',
             password: await bcrypt.hash('password123', 10), // Hash the password
             role: 'manager',
         },
         {
-            name: 'Jane Smith',
-            email: 'jane.smith@example.com',
+            name: 'drashti manager',
+            email: 'jiyuchauhan511@gmail.com',
             password: await bcrypt.hash('password123', 10), // Hash the password
-            role: 'employee',
+            role: 'manager',
         },
         {
-            name: 'Alice Johnson',
-            email: 'alice.johnson@example.com',
+            name: 'drashti',
+            email: 'drashtichauhan414@gmail.com',
             password: await bcrypt.hash('password123', 10), // Hash the password
-            role: 'employee',
+            role: 'manager',
         },
         {
-            name: 'Bob Brown',
-            email: 'bob.brown@example.com',
+            name: 'sujaltest1234@gmail.com',
+            email: 'sujaltest1234@gmail.com',
             password: await bcrypt.hash('password123', 10), // Hash the password
             role: 'employee',
         },
